@@ -1,10 +1,14 @@
-local RunService = game:GetService("RunService")
-
 local datascript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/refs/heads/main/data.lua"))()
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/download/" .. datascript.WindUi_Version .. "/main.lua"))() 
 
 local events = {
     ClickMoney = game:GetService("ReplicatedStorage").Events.ClickMoney :: RemoteEvent
+}
+
+local script_settings = {
+    ["AutoClicker"] = {
+        Timer = 0.01 :: number
+    }
 }
 
 WindUI:AddTheme({
@@ -18,7 +22,6 @@ WindUI:AddTheme({
     Icon = Color3.fromHex("#FFFFFF"),
 })
 
--- Renamed from 'error' to avoid breaking Luau's built-in error handler
 local function uiError(errormsg: string)
     WindUI:Notify({
         Title = "ERROR",
@@ -58,24 +61,18 @@ local AutoClickerSection = AutoFarmTab:Section({
     Title = "Auto Clicker"
 })
 
--- Holds our thread reference globally across toggle states
 local loopThread = nil 
 
--- Fixed: Changed parent from AutoFarmTab to AutoClickerSection
 local AutoClickerToggle = AutoClickerSection:Toggle({
     Title = "Enable Auto Clicker",
     Callback = function(state)
         if state == true then
-            -- Double start validation
             if loopThread then
                 uiError("Double Start in Autoclicker. Disabling.")
                 return
             end
-
-            -- Safe background thread optimized for performance
             loopThread = task.spawn(function()
                 while true do
-                    -- Wrapped inside pcall to protect against network drops
                     local success, err = pcall(function()
                         events.ClickMoney:FireServer()
                     end)
@@ -84,19 +81,31 @@ local AutoClickerToggle = AutoClickerSection:Toggle({
                         warn("AutoClick failed: " .. tostring(err))
                     end
 
-                    -- Safe, un-laggy throttle (Approx 20 clicks per second)
-                    task.wait(0.05) 
+                    task.wait(0.01) 
                 end
             end)
             
             notify("Auto Clicker has been activated.", "Enabled")
         else
-            -- Destroys the thread instantly on toggle off
             if loopThread then
                 task.cancel(loopThread)
                 loopThread = nil
                 notify("Auto Clicker has been deactivated.", "Disabled")
             end
         end
+    end
+})
+
+local autoclickerslider = AutoClickerSection:Slider({
+    Title = "AutoClicker Delay",
+    Desc = "Control the delay in-between clicks of the autoclicker",
+    Step = 0.01,
+    Value = {
+        Min = 0,
+        Max = 0.5,
+        Default = 0.05
+    },
+    Callback = function(value)
+        script_settings.AutoClicker.Timer = value
     end
 })
