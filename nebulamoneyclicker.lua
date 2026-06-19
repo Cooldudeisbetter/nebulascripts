@@ -81,7 +81,7 @@ local AutoClickerToggle = AutoClickerSection:Toggle({
                         warn("AutoClick failed: " .. tostring(err))
                     end
 
-                    task.wait(0.01) 
+                    task.wait(script_settings.AutoClicker.Timer) 
                 end
             end)
             
