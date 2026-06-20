@@ -1,58 +1,137 @@
-local datascript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/scripts/script_data/data.lua"))()
+local Players = game:GetService("Players")
+local plr = Players.LocalPlayer
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
--- local plr = game:GetService("Players").LocalPlayer -- disabled for testing
+WindUI:AddTheme({
+    Name = "Lunar Theme",
+    
+    Accent = Color3.fromHex("#101010"),
+    Background = Color3.fromHex("#5e00b0"), 
+    Outline = Color3.fromHex("#FFFFFF"),
+    Text = Color3.fromHex("#FFFFFF"),
+    Placeholder = Color3.fromHex("#7a7a7a"),
+    Button = Color3.fromHex("#52525b"),
+    Icon = Color3.fromHex("#a1a1aa"),
+})
 
-local luna = loadstring(game:HttpGet(datascript.LunaUI, true))()
+local Window = WindUI:CreateWindow({
+    Theme = "Lunar Theme",
+    Title = "Lunar Hub",
+    Icon = "lucide:moon",
+    Author = "by cooldudeisbetter",
+    Folder = "Lunar Hub",
+})
 
-local funcs = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/scripts/script_data/funcs.lua"))()
-
-
--- banned-user check disabled for testing
--- if plr.UserId and table.find(datascript.Banned_UserIds, plr.UserId) then
---     plr:Kick("You are banned from using this script.")    
--- end
-local function notify(msg: string, title: string, icon: string)
-    luna:Notification({ 
-        Title = title,
-        Icon = funcs.get_icon(icon),
-        Content = msg
-    })
+local function Notify(title,content,Icon,Duration)
+    if title and content then 
+        WindUI:Notify({
+            Title = title,
+            Content = content,
+            Icon = Icon or nil,
+            Duration = Duration or 5,
+        })
+    else
+        WindUI:Notify({
+            Title = "ERROR",
+            Content = "Invalid variables",
+            Icon = "shield-alert",
+            Duration = 10
+        })
+    end
 end
 
-local Window = luna:CreateWindow({
-    Name = "Nebula Hub",
-    Subtitle = "by cooldudeisbetter",
-    LogoId = funcs.get_icon("moon"),
-    LoadingEnabled = true,
-    LoadingTitle = "Loading Nebula Hub",
-    LoadingDesc = "Welcome to Nebula Hub, please wait while we load everything up for you.",
-
-    ConfigSettings = {
-        RootFolder = nil,
-        ConfigFolder = "Nebula Hub",
-    },
-    KeySystem=false
+local home = Window:Tab({
+    Title = "Home",
+    Icon = "house",
+    Locked = false,
 })
 
-local supported_executors = {"Real","Velocity","madium","Yub-X"}
-supported_executors[#supported_executors + 1] = string.char(68,101,108,116,97)
-
-Window:CreateHomeTab({
-    SupportedExecutors = supported_executors,
-    DiscordInvite = "0000"
+Window:Tag({
+    Title = "v1.0.0 APLHA",
+    Icon = "rocket",
+    Color = Color3.fromHex("#e3102c"),
+    Radius = 10,
 })
 
-local tabs = {
-    ["Nebula_Scripts"] = Window:CreateTab({
-        Name = "Nebula Scripts",
-        Icon = funcs.get_icon("scroll-text")
-    })
-}
-tabs.Nebula_Scripts:CreateButton({
-    Name = "Money Clicker Script",
-    Description = "A unique auto-farm script for money clicker",
+Window:Tag({
+    Title = "Custom",
+    Icon = "zap",
+    Color = Color3.fromHex("#002fff"),
+    Radius = 10,
+})
+
+home:Select()
+
+Notify("Lunar Hub","Lunar hub has been loaded | Have a good day","refresh-ccw",5)
+
+home:Code({
+    Title = "Script Copy",
+    Code = [[loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/Scripts/refs/heads/main/Loader.lua"))()]]
+})
+
+local scripts = Window:Tab({
+    Title = "Scripts",
+    Icon = "scroll-text",
+})
+
+scripts:Button({
+    Title = "Solara Hub v4",
+    Desc = "Solara hub is one of the best script hubs out there",
+    Locked = false,
     Callback = function()
-        notify("Loading Money Clicker Script, please wait...", "Money Clicker", "loader")
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/scripts/money_clicker/nebulamoneyclicker.lua"))()
+        loadstring(game:HttpGet('https://solarahub.space/SH.lua'))()
+        Notify("Lunar Hub","Solara Hub has been loaded","check",5)
+    end
+})
+
+scripts:Button({
+    Title = "VoidWare Loader",
+    Desc = "Best script ever",
+    Locked = false,
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/loader.lua", true))()
+        Notify("Lunar Hub","Voidware has been loaded","check",5)
+    end
+})
+
+local chat = Window:Tab({
+    Title = "Chat Bypassers",
+    Icon = "message-square-text",
+})
+
+chat:Button({
+    Title = "Betterbypasser",
+    Desc = "Best chat bypasser by synergy",
+    Locked = false,
+    Callback = function()
+        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua"))()
+        Notify("Lunar hub","Betterbypasser has been loaded","check",5)
+    end
+})
+
+local acb = Window:Tab({
+    Title = "Anticheat Bypasser",
+    Icon = "shield-off",
+})
+
+acb:Button({
+    Title = "Anti Kick",
+    Desc = "Activates anti kick",
+    Locked = false,
+    Callback = function()
+        Notify("Lunar Hub","Running anti kick","check",5)
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Anti-Kick/main/Anti-Kick.lua"))()
+    end
+})
+
+acb:Divider()
+
+acb:Button({
+    Title = "Bypass adonis anti-cheat",
+    Desc = "Bypasses adonis anti-cheat",
+    Locked = false,
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/refs/heads/main/Source.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Anti-Kick/main/Anti-Kick.lua"))()
     end
 })
