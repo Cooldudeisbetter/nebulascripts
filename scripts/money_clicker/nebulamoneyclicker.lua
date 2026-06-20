@@ -1,5 +1,5 @@
 local datascript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/refs/heads/main/scripts/script_data/data.lua"))()
-local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/download/" .. datascript.WindUi_Version .. "/main.lua"))() 
+local WindUI = loadstring(game:HttpGet(datascript.WindUI))() 
 
 local events = {
     ClickMoney = game:GetService("ReplicatedStorage").Events.ClickMoney :: RemoteEvent,

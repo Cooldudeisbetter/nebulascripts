@@ -1,5 +1,7 @@
+local _version = "1.6.65"
+
 local scriptdata = {
-    WindUi_Version = "1.6.65",
+    WindUI = "https://github.com/Footagesus/WindUI/releases/latest/download/main.lua",
     Banned_UserIds = {}
 }
 
