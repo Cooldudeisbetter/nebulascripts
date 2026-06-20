@@ -1,6 +1,15 @@
-<p align="center">
-    <img src="img/logo.jpg">
-</p>   
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rounded&color=0:560090,100:000000&height=250&text=Nebula%20Hub&fontSize=80&fontColor=ffffff&animation=fadeIn" />
+  
+  <br>
+  
+  [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+  [![Discord](https://img.shields.io/discord/YOUR_SERVER_ID?color=7289da&label=Discord&logo=discord)](YOUR_DISCORD_LINK)
+  [![Last Commit](https://img.shields.io/github/last-commit/Cooldudeisbetter/nebulascripts?color=orange)](https://github.com/Cooldudeisbetter/nebulascripts/commits/main)
+  
+  <br>
+  <br>
+</div>   
 
 # NEBULA SCRIPTS
 

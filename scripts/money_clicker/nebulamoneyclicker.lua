@@ -1,13 +1,14 @@
-local datascript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/refs/heads/main/data.lua"))()
+local datascript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/data.lua"))()
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/download/" .. datascript.WindUi_Version .. "/main.lua"))() 
 
 local events = {
-    ClickMoney = game:GetService("ReplicatedStorage").Events.ClickMoney :: RemoteEvent
+    ClickMoney = game:GetService("ReplicatedStorage").Events.ClickMoney :: RemoteEvent,
+    EnterCode = game:GetService("ReplicatedStorage").Events.EnterCode :: RemoteEvent
 }
 
 local script_settings = {
     ["AutoClicker"] = {
-        Timer = 0.01 :: number
+        Timer = 0.01 
     }
 }
 
