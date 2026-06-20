@@ -1,7 +1,7 @@
-local datascript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/refs/heads/main/scripts/script_data/data.lua"))()
+local datascript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/scripts/script_data/data.lua"))()
 local plr = game:GetService("Players").LocalPlayer
 local luna = loadstring(game:HttpGet(datascript.LunaUI, true))()
-local funcs = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/refs/heads/main/scripts/script_data/funcs.lua"))()
+local funcs = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/scripts/script_data/funcs.lua"))()
 
 
 if plr.UserId and table.find(datascript.Banned_UserIds, plr.UserId) then
@@ -49,6 +49,6 @@ tabs.Nebula_Scripts:CreateButton({
     Description = "A unique auto-farm script for money clicker",
     Callback = function()
         notify("Loading Money Clicker Script, please wait...", "Money Clicker", "loader")
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/refs/heads/main/scripts/money_clicker/nebulamoneyclicker.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/scripts/money_clicker/nebulamoneyclicker.lua"))()
     end
 })

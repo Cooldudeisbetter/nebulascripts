@@ -1,4 +1,4 @@
-local datascript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/refs/heads/main/scripts/script_data/data.lua"))()
+local datascript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/scripts/script_data/data.lua"))()
 local plr = game:GetService("Players").LocalPlayer
 local icons_lib = loadstring(game:HttpGet(datascript.Icons))()
 
