@@ -16,7 +16,7 @@
 > Nebula scripts is a wide variety of open-source programs which execute specific commands in roblox games
 ## 🚀 Quick Start
 ```lua
-loadstring("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/refs/heads/main/hub.lua")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/refs/heads/main/hub.lua"))()
 ```
 
 ## 💪 Advantages of Nebula
