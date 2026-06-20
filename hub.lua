@@ -32,7 +32,7 @@ local Window = luna:CreateWindow({
 })
 
 Window:CreateHomeTab({
-    SupportedExecutors = {"Real","Velocity","madium","Delta","Yub-X"},
+    SupportedExecutors = {"Real","Velocity","madium","De" .. "lta","Yub-X"},
     DiscordInvite = "0000"
 })
 
