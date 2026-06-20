@@ -1,4 +1,4 @@
-local datascript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/data.lua"))()
+local datascript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/refs/heads/main/scripts/script_data/data.lua"))()
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/download/" .. datascript.WindUi_Version .. "/main.lua"))() 
 
 local events = {
@@ -110,3 +110,15 @@ local autoclickerslider = AutoClickerSection:Slider({
         script_settings.AutoClicker.Timer = value
     end
 })
+
+AutoClickerSection:Tag({
+    Title = "Laggy",
+    Icon = "triangle-alert",
+    Color = Color3.fromHex("#ffba00")
+})
+
+local codestab = Window:Tab({
+    Title = "Codes",
+    Icon = "key-square"
+})
+

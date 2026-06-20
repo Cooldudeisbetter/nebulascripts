@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rounded&color=0:560090,100:000000&height=250&text=Nebula%20Hub&fontSize=80&fontColor=ffffff&animation=fadeIn" />
+  <img src="https://capsule-render.vercel.app/api?type=rounded&color=0:560090,100:000000&height=250&text=Nebula%20Scripts&fontSize=80&fontColor=ffffff&animation=fadeIn" />
   
   <br>
   
