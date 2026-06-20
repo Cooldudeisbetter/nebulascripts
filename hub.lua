@@ -1,17 +1,17 @@
-local data = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/scripts/script_data/data.lua"))()
+--local data = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/scripts/script_data/data.lua"))()
 local plr = game:GetService("Players").LocalPlayer
-local luna = loadstring(game:HttpGet(data.LunaUI, true))()
-local funcs = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/scripts/script_data/funcs.lua"))()
+local luna = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/luna", true))()
+--local funcs = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/scripts/script_data/funcs.lua"))()
 
 
-if plr.UserId and table.find(data.Banned_UserIds, plr.UserId) then
-    plr:Kick("You are banned from using this script.")    
-end
+-- if plr.UserId and table.find(data.Banned_UserIds, plr.UserId) then
+--     plr:Kick("You are banned from using this script.")    
+-- end
 
 local function notify(msg: string, title: string, icon: string)
     luna:Notification({ 
         Title = title,
-        Icon = funcs.get_icon(icon),
+        -- Icon = funcs.get_icon(icon),
         Content = msg
     })
 end
@@ -19,7 +19,7 @@ end
 local Window = luna:CreateWindow({
     Name = "Nebula Hub",
     Subtitle = "by cooldudeisbetter",
-    LogoId = funcs.get_icon("moon"),
+    -- LogoId = funcs.get_icon("moon"),
     LoadingEnabled = true,
     LoadingTitle = "Loading Nebula Hub",
     LoadingDesc = "Welcome to Nebula Hub, please wait while we load everything up for you.",
@@ -39,7 +39,7 @@ Window:CreateHomeTab({
 local tabs = {
     ["Nebula_Scripts"] = Window:CreateTab({
         Name = "Nebula Scripts",
-        Icon = funcs.get_icon("scroll-text")
+        -- Icon = funcs.get_icon("scroll-text")
     })
 }
 
