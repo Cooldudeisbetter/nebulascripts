@@ -1,5 +1,12 @@
 local datascript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/refs/heads/main/scripts/script_data/data.lua"))()
 local WindUI = loadstring(game:HttpGet(datascript.WindUI))() 
+local plr = game:GetService("Players").LocalPlayer
+
+if plr.UserId and table.find(datascript.Banned_UserIds, plr.UserId) then
+    plr:Kick("You are banned from using this script.")    
+end
+
+
 
 local events = {
     ClickMoney = game:GetService("ReplicatedStorage").Events.ClickMoney :: RemoteEvent,
