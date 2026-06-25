@@ -1,4 +1,7 @@
-local datascript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/scripts/script_data/data.lua"))()
+local datascript = {
+    WindUI = "https://github.com/Footagesus/WindUI/releases/latest/download/main.lua",
+    Banned_UserIds = {}
+}
 local WindUI = loadstring(game:HttpGet(datascript.WindUI))()
 local plr = game:GetService("Players").LocalPlayer
 
