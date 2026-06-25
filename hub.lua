@@ -51,7 +51,7 @@ Window:CreateHomeTab({
 local tabs = {
     ["Nebula_Scripts"] = Window:CreateTab({
         Name = "Nebula Scripts",
-        Icon = funcs.get_icon("scroll-text")
+        Icon = funcs.get_icon("scroll")
     })
 }
 
