@@ -1,5 +1,10 @@
-local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+local datascript = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/scripts/script_data/data.lua"))()
+local WindUI = loadstring(game:HttpGet(datascript.WindUI))()
 local plr = game:GetService("Players").LocalPlayer
+
+if plr.UserId and table.find(datascript.Banned_UserIds, plr.UserId) then
+    plr:Kick("You are banned from using this script.")
+end
 
 
 

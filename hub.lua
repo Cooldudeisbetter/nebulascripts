@@ -1,42 +1,54 @@
-local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+local data = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/scripts/script_data/data.lua"))()
+local plr = game:GetService("Players").LocalPlayer
+local luna = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/luna", true))()
+local funcs = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/scripts/script_data/funcs.lua"))()
 
-WindUI:AddTheme({
-    Name = "NebulaTheme",
-    Accent = Color3.fromHex("#FFFFFF"),
-    Background = Color3.fromHex("#9810fa"),
-    Outline = Color3.fromHex("#FFFFFF"),
-    Text = Color3.fromHex("#FFFFFF"),
-    Placeholder = Color3.fromHex("#7a7a7a"),
-    Button = Color3.fromHex("#252525"),
-    Icon = Color3.fromHex("#FFFFFF"),
+
+if plr.UserId and table.find(data.Banned_UserIds, plr.UserId) then
+    plr:Kick("You are banned from using this script.")
+end
+
+local function notify(msg: string, title: string, icon: string)
+    luna:Notification({
+        Title = title,
+        Icon = funcs.get_icon(icon),
+        Content = msg
+    })
+end
+
+local Window = luna:CreateWindow({
+    Name = "Nebula Hub",
+    Subtitle = "by cooldudeisbetter",
+    -- LogoId = funcs.get_icon("moon"),
+    LoadingEnabled = true,
+    LoadingTitle = "Loading Nebula Hub",
+    LoadingDesc = "Welcome to Nebula Hub, please wait while we load everything up for you.",
+
+    ConfigSettings = {
+        RootFolder = nil,
+        ConfigFolder = "Nebula Hub",
+    },
+    KeySystem=false
 })
 
-local Window = WindUI:CreateWindow({
-    Title = "Nebula Hub",
-    Icon = "moon",
-    Author = "by cooldudeisbetter",
-    Theme = "NebulaTheme"
+Window:CreateHomeTab({
+    SupportedExecutors = {"Real","Velocity","madium","Yub-X"},
+    DiscordInvite = "0000"
 })
 
-local ScriptsTab = Window:Tab({
-    Title = "Nebula Scripts",
-    Icon = "scroll-text"
-})
+local tabs = {
+    ["Nebula_Scripts"] = Window:CreateTab({
+        Name = "Nebula Scripts",
+        Icon = funcs.get_icon("scroll-text")
+    })
+}
 
-local ScriptsSection = ScriptsTab:Section({
-    Title = "Scripts"
-})
 
-ScriptsSection:Button({
-    Title = "Money Clicker",
-    Desc = "A unique auto-farm script for money clicker",
+tabs.Nebula_Scripts:CreateButton({
+    Name = "Money Clicker Script",
+    Description = "A unique auto-farm script for money clicker",
     Callback = function()
-        WindUI:Notify({
-            Title = "Money Clicker",
-            Icon = "loader",
-            Content = "Loading Money Clicker Script, please wait...",
-            Duration = 3
-        })
+        notify("Loading Money Clicker Script, please wait...", "Money Clicker", "loader")
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Cooldudeisbetter/nebulascripts/main/scripts/money_clicker/nebulamoneyclicker.lua"))()
     end
 })
