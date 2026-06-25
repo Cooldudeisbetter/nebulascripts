@@ -1,13 +1,5 @@
-local datascript = {
-    WindUI = "https://github.com/Footagesus/WindUI/releases/latest/download/main.lua",
-    Banned_UserIds = {}
-}
-local WindUI = loadstring(game:HttpGet(datascript.WindUI))()
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 local plr = game:GetService("Players").LocalPlayer
-
-if plr.UserId and table.find(datascript.Banned_UserIds, plr.UserId) then
-    plr:Kick("You are banned from using this script.")    
-end
 
 
 

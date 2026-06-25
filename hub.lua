@@ -1,6 +1,5 @@
 local data = {
     WindUI = "https://github.com/Footagesus/WindUI/releases/latest/download/main.lua",
-    Banned_UserIds = {},
     LunaUI = "https://raw.nebulasoftworks.xyz/luna",
     Icons = "https://raw.nebulasoftworks.xyz/nebula-icon-library-loader"
 }
@@ -14,11 +13,6 @@ local funcs = {
         return icons_lib:GetIcon(name, "lucide")
     end
 }
-
-
-if plr.UserId and table.find(data.Banned_UserIds, plr.UserId) then
-    plr:Kick("You are banned from using this script.")    
-end
 
 local function notify(msg: string, title: string, icon: string)
     luna:Notification({ 
