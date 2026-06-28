@@ -23,14 +23,14 @@ local script_settings = {
 }
 
 WindUI:AddTheme({
-    Name = "NebulaTheme", 
-    Accent = Color3.fromHex("#FFFFFF"),
-    Background = Color3.fromHex("#9810fa"),
-    Outline = Color3.fromHex("#FFFFFF"),
-    Text = Color3.fromHex("#FFFFFF"),
-    Placeholder = Color3.fromHex("#7a7a7a"),
-    Button = Color3.fromHex("#252525"),
-    Icon = Color3.fromHex("#FFFFFF"),
+    Name = "SpectraTheme",
+    Accent = Color3.fromHex("#8B5CF6"),
+    Background = Color3.fromHex("#0F172A"),
+    Outline = Color3.fromHex("#8B5CF6"),
+    Text = Color3.fromHex("#F8FAFC"),
+    Placeholder = Color3.fromHex("#475569"),
+    Button = Color3.fromHex("#1E293B"),
+    Icon = Color3.fromHex("#F8FAFC"),
 })
 
 local function uiError(errormsg: string)
@@ -52,10 +52,10 @@ local function notify(msg: string, title: string)
 end
 
 local Window = WindUI:CreateWindow({
-    Title = "Nebula",
+    Title = "Spectra",
     Icon = "sparkles",
     Author = "by cooldudeisbetter",
-    Theme = "NebulaTheme"
+    Theme = "SpectraTheme"
 })
 
 local AutoFarmTab = Window:Tab({

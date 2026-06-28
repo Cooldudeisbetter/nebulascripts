@@ -19,14 +19,14 @@ local function notify(msg: string, title: string)
 end
 
 local Window = luna:CreateWindow({
-    Name = "Nebula Hub",
+    Name = "Spectra Hub",
     Subtitle = "by cooldudeisbetter",
     LoadingEnabled = true,
-    LoadingTitle = "Loading Nebula Hub",
-    LoadingDesc = "Welcome to Nebula Hub, please wait while we load everything up for you.",
+    LoadingTitle = "Loading Spectra Hub",
+    LoadingDesc = "Welcome to Spectra Hub, please wait while we load everything up for you.",
     ConfigSettings = {
         RootFolder = nil,
-        ConfigFolder = "Nebula Hub",
+        ConfigFolder = "Spectra Hub",
     },
     KeySystem = false
 })
